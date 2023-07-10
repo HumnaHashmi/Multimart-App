@@ -1,12 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom'; // Updated import
+import { useNavigate } from 'react-router-dom';
 import { incrementQuantity, decrementQuantity, removeItem, clearCart } from '../redux/slices/cartSlice';
 import { MDBIcon } from 'mdbreact';
+import '../../style/cart.css';
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Updated hook
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
 
   const getTotal = () => {
@@ -20,7 +21,7 @@ const Cart = () => {
   };
 
   const handleContinueCheckout = () => {
-    navigate('/checkout'); // Use navigate to navigate to the checkout page
+    navigate('/checkout');
   };
 
   if (cart.length === 0) {
@@ -35,52 +36,45 @@ const Cart = () => {
 
   return (
     <div>
-      <h1>Cart</h1>
+      <h1 className="cart-heading">Cart</h1>
 
       <div className="cartWrapper">
         {cart.map((product) => (
           <div key={product.id} className="cartCard">
-            <img src={product.image} alt="" />
-            <h5>{product.title}</h5>
-            <h5>{product.price}</h5>
-            <button
-              className="btn btn-sm btn-danger"
-              onClick={() => dispatch(removeItem(product.id))}
-            >
+            <img src={product.image} alt="" className="productImage" />
+            <h5 className="productTitle">{product.title.slice(0, 20)}</h5>
+            <h5 className="productPrice">${product.price}</h5>
+            <button className="removeButton" onClick={() => dispatch(removeItem(product.id))}>
               Remove
             </button>
 
             <div className="cartItem__incrDec">
-              <button
-                className="btn btn-sm"
-                onClick={() => dispatch(decrementQuantity(product.id))}
-              >
-                <p>-</p>
+              <button className="quantityButton" onClick={() => dispatch(decrementQuantity(product.id))}>
+                -
               </button>
-              <p>{product.quantity}</p>
-              <button
-                className="btn btn-sm"
-                onClick={() => dispatch(incrementQuantity(product.id))}
-              >
-                <p>+</p>
+              <p className="quantityText">{product.quantity}</p>
+              <button className="quantityButton" onClick={() => dispatch(incrementQuantity(product.id))}>
+                +
               </button>
             </div>
           </div>
         ))}
-        <div className="cartFooter">
-          <div className="cartFooter__buttons">
-            <button className="btn btn-primary" onClick={handleContinueCheckout}>
-              Continue Checkout
-            </button>
-            <button className="btn btn-danger" style={{ marginLeft: '23px' }} onClick={() => dispatch(clearCart())}>
-              Clear Cart
-            </button>
-          </div>
-          <br />
-          <p className="cartFooter__total">
-            Total ({getTotal().totalQuantity} items): <strong>${getTotal().totalPrice.toFixed(2)}</strong>
-          </p>
+      </div>
+
+      <div className="cartFooter">
+        <div className="d-flex align-items-center">
+          <button className="continueButton" onClick={handleContinueCheckout}>
+            Continue Checkout
+          </button>
+
+          <button className="clearButton" onClick={() => dispatch(clearCart())}>
+            Clear Cart
+          </button>
         </div>
+        <br />
+        <p className="cartFooter__total">
+          Total ({getTotal().totalQuantity} items): <strong>${getTotal().totalPrice.toFixed(2)}</strong>
+        </p>
       </div>
     </div>
   );
