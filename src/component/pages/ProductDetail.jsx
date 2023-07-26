@@ -18,7 +18,7 @@ function ProductDetail() {
       setLoading(false);
     };
     fetchProduct();
-  }, [id]);
+  }, [id]); 
 
   const dispatch = useDispatch();
 
@@ -41,7 +41,9 @@ function ProductDetail() {
           <p>{product.title}</p>
           <p className="lead">Rating: {product.rating && product.rating.rate} <i className="fa fa-star"></i></p>
           <p className="price">${product.price}</p>
-          <button onClick={() => handleAdd(product)} className="btn btn-primary">
+          <button onClick={() => handleAdd(product)} className="btn btn-block text-white"
+           style={{ backgroundColor: '#C51605', fontWeight: 600 }}>
+
             Add to Cart
           </button>
         </div>

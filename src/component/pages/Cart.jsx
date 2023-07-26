@@ -36,7 +36,7 @@ const Cart = () => {
 
   return (
     <div>
-      <h1 className="cart-heading">Cart</h1>
+      <h1 className="cart-heading text-center display-3" style={{fontFamily:'fantasy', color:'#C51605'}}>Cart</h1>
 
       <div className="cartWrapper">
         {cart.map((product) => (
@@ -44,7 +44,7 @@ const Cart = () => {
             <img src={product.image} alt="" className="productImage" />
             <h5 className="productTitle">{product.title.slice(0, 20)}</h5>
             <h5 className="productPrice">${product.price}</h5>
-            <button className="removeButton" onClick={() => dispatch(removeItem(product.id))}>
+            <button className="removeButton" onClick={() => dispatch(removeItem(product.id))} style={{color:'#E5B836', fontWeight:'bold'}}>
               Remove
             </button>
 
@@ -52,7 +52,7 @@ const Cart = () => {
               <button className="quantityButton" onClick={() => dispatch(decrementQuantity(product.id))}>
                 -
               </button>
-              <p className="quantityText">{product.quantity}</p>
+              <p className="quantityText"style={{ fontSize:'24px', marginRight:'6px'}}>{product.quantity}</p>
               <button className="quantityButton" onClick={() => dispatch(incrementQuantity(product.id))}>
                 +
               </button>
@@ -63,11 +63,11 @@ const Cart = () => {
 
       <div className="cartFooter">
         <div className="d-flex align-items-center">
-          <button className="continueButton" onClick={handleContinueCheckout}>
+          <button className="continueButton btn text-white font-bold" onClick={handleContinueCheckout} style={{backgroundColor:'#C51605'}}>
             Continue Checkout
           </button>
 
-          <button className="clearButton" onClick={() => dispatch(clearCart())}>
+          <button className="clearButton btn border ml-2" onClick={() => dispatch(clearCart())}>
             Clear Cart
           </button>
         </div>

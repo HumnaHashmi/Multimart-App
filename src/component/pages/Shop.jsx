@@ -85,26 +85,38 @@ const ShowProducts=()=>{
     <button className='btn btn-outline-dark me-2'onClick={()=>filterProduct("electronics")}>Electronics</button>
       </div>
 
-      <div className="row">
-        {/* Map over filtered products */}
-        {filter.map((filterItems) => (
-          
-          <div className="col-md-3" key={filterItems.id} style={{marginBottom:"20px"}}>
-            <div className="card" >
-              <Link to={`/shop/${filterItems.id}`}>
-              <div className="image-container" style={{height:"230px",alignItems:'center',justifyContent:'center'}}>
-                <img src={filterItems.image} alt="" style={{maxHeight:"100%",maxWidth:"100%",}} />
-                <p>{filterItems.title}</p>
-                <h5>{filterItems.price}</h5>
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          {/* Map over filtered products */}
+          {filter.map((filterItems) => (
+            <div className="col-md-3" key={filterItems.id} style={{ marginBottom: '20px' }}>
+              <div className="card h-100">
+                <Link className="text-decoration-none" to={`/shop/${filterItems.id}`}>
+                  <div className="image-container" style={{ height: '230px', alignItems: 'center', justifyContent: 'center' }}>
+                    <img
+                      className="mx-auto mb-4 img-fluid"
+                      src={filterItems.image}
+                      alt={filterItems.title}
+                      style={{ maxHeight: '100%', maxWidth: '100%' }}
+                    />
+                  </div>
+                </Link>
+                <div className="card-body text-center">
+                  <h5 className="card-title text-black mb-3">
+                    {filterItems.title}
+                  </h5>
+                  <p className="card-text text-black font-bold mb-3">${filterItems.price}</p>
+                  <button
+                    onClick={() => handleAdd(filterItems)}
+                    className="btn btn-block text-white"
+                    style={{ backgroundColor: '#C51605', fontWeight: 600 }}
+                  >
+                    Add to cart
+                  </button>
                 </div>
-              </Link>
-              <button onClick={() => handleAdd(filterItems)} className="btn">
-                Add to cart
-              </button>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
     </>
   );
 };
@@ -117,17 +129,10 @@ const ShowProducts=()=>{
 <div className="container bg-dark mt-5">
         <div className="row">
           <div className="col-md-12 text-white h4 mt-4 ml-3">Winter Sale</div>
-          <div className="col-md-12 mt-3 mb-4 wintersaletext text-secondary" >
+          <div className="col-md-12 mt-3 mb-4 wintersaletext text-secondary">
           <ReadMore>
-            Slash winter Sales begins . Get up to 80% Discount on all products
-            GeeksforGeeks: A Computer Science portal for geeks. 
-          It contains well written, well thought and well explained
-          computer science, programming articles and quizzes. 
-          It provides a variety of services for you to learn, so thrive
-          and also have fun! Free Tutorials, Millions of Articles, Live, 
-          Online and Classroom Courses ,Frequent Coding Competitions,
-          Webinars by Industry Experts, Internship opportunities, and Job
-          Opportunities. Knowledge is power!
+            Slash winter Sales begins.
+            Are you ready to experience the magic of winter at unbeatable prices? Welcome to our Winter Sale extravaganza! Get ready to cozy up in style as we bring you the most awaited deals of the season. With winter's chilly charm just around the corner, it's time to update your wardrobe and home essentials with jaw-dropping discounts.
             </ReadMore>
           </div>
         </div>

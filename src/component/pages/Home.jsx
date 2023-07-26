@@ -1,90 +1,104 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import Helmet from '../Helmet/Helmet'
-import homeImg from '../../assets/images/Untitled design (4) 3.png'
-import mens from "../../assets/images/mens.png";
-import womens from "../../assets/images/womens (1).png";
-import kids from "../../assets/images/kids.png";
-import F0064201301_2 from "../../assets/images/F0064201301_2 1.png";
-import F0066101301_3 from "../../assets/images/F0066101301_3 1.png";
-import F0073101901_jacket_2 from "../../assets/images/F0073101901-jacket_2 1.png";
-function Home() {
+import React from 'react';
+import Helmet from '../Helmet/Helmet';
+import homeImg from '../../assets/images/Untitled design (4) 3.png';
+import mens from '../../assets/images/mens 51.png';
+import womens from '../../assets/images/womens 3.webp';
+import kids from '../../assets/images/kid.jpg';
+import F0064201301_2 from '../../assets/images/womens were 2.jpg';
+import F0066101301_3 from '../../assets/images/blue shirt womens.jpg';
+import F0073101901_jacket_2 from '../../assets/images/menswere1.jpg';
+import carousol1 from '../../assets/images/carousol1.png'
+import carousol22 from '../../assets/images/carousol22.png'
+import { NavLink } from 'react-router-dom';
+
+
+const Home = () => {
   return (
-   <>
+    <>
      <Helmet title={'Home'}></Helmet>
-    <div class="container-fluid top mt-5">
-  <div class="row">
-    <div class="col-md-6 top_column text-white" >
-      <div class="top_text h1 mt-5">
-        The only wardrobe you need
-      </div>
-      <div class="mt-4 bottom_text">
-        Shop elegant & comfortable Men's Polo from our wide range of collection. Pull off the classy & elegant styles with MMTM.
-      </div>
-      <div class="mt-5" >
-        <NavLink to="/shop"><button type="button" class="btn btn-secondary-1 text-white px-5 py-3 btn-lg" >shop Now</button></NavLink>
-        <NavLink to='/signup'><button type="button" class="btn btn-outline-secondary text-white ml-1  px-5 py-3">Sign Up</button>
-        </NavLink>
+     <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+        <ol className="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        </ol>
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <img className="d-block w-100" src={carousol1} alt="First slide" style={{ height: '600px', objectFit: 'cover' }} />
+            <div className="carousel-caption d-md-block">
+              <p className='display-3' style={{fontFamily:'fantasy'}}>Winter Collection</p>
+              <p className='lead bold'>Shop our latest winter collection now</p>
+              <NavLink to='/shop'>
+              <button className="btn bold text-white" style={{ backgroundColor: '#C51605' }}>Shop Now</button>
+            </NavLink>
 
+            </div>
+          </div>
+          <div className="carousel-item">
+            <img className="d-block w-100" src={carousol22} alt="Second slide" style={{ height: '600px', objectFit: 'cover' }} />
+            <div className="carousel-caption d-md-block">
+              <h3>Special Deals</h3>
+              <p>Check out our special deals on new arrivals</p>
+              <button className="btn btn-primary">View Deals</button>
+            </div>
+          </div>
+        </div>
+        <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="sr-only">Previous</span>
+        </a>
+        <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="sr-only">Next</span>
+        </a>
       </div>
-    </div>
-
-    <div class="col-md-6">
-    <img src={homeImg}   class="img-fluid mt-5" alt="Responsive image"/>
-    </div>
-  </div>
- 
-</div>
- <div className="container-fluid">
+      {/* Rest of the content */} <div className="container mt-5">
         <div className="row">
-          <div className="col-md-3 mt-4">
-            <div className="first">10% off on all winter products</div>
-            <div className="mt-5 first_text">
-              Delivery free for more than 2500 PKR
+          <div className="col-md-3 mb-4">
+            <div className="text-white p-4 rounded" style={{backgroundColor:'#C51605'}}>
+              <div className="text-lg font-semibold">10% off on all winter products</div>
+              <div className="mt-4">Delivery free for more than 2500 PKR</div>
             </div>
           </div>
-          <div className="col-md-3 second">
-            <img src={mens} className="img-fluid mt-5" alt="" />
-            <div className="mt-2 ml-3 text">Mens</div>
+          <div className="col-md-3 mb-4">
+            <img src={mens} className="img-fluid" alt="Mens" />
+            <div className="mt-2 font-semibold text-center">Mens</div>
           </div>
 
-          <div className="col-md-3 third mt-5">
-            <img src={womens} className="img-fluid mt-4" alt="" />
-            <div className="mt-2 ml-3 text">Womens</div>
+          <div className="col-md-3 mb-4">
+            <img src={womens} className="img-fluid" alt="Womens" />
+            <div className="mt-2 font-semibold text-center">Womens</div>
           </div>
-          <div className="col-md-3 fourth">
-            <img src={kids} className="img-fluid mt-4" alt="" />
-            <div className="mt-2 ml-3 text">Kids</div>
+          <div className="col-md-3 mb-4">
+            <img src={kids} className="img-fluid" alt="Kids" />
+            <div className="mt-2 font-semibold text-center">Kids</div>
           </div>
         </div>
       </div>
-      <div className="container-fluid mt-xl-5 mt-lg-5 mt-md-5 mt-sm-5 mb-5">
-        <div className="row mr-5">
-          <div className="col-md-3 mt-md-5">
-            <div className="first">
-              Special deals on <span> new arrivals</span>
-            </div>
-            <div className="mt-5 first_text">
-              MMTH just dropped some of the new men and women winters
-              collection, shop now and get some amazing deals and discounts
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col-md-3 mb-4">
+            <div className=" text-white p-4 rounded" style={{backgroundColor:'#C51605'}}>
+              <div className="text-lg font-semibold">Special deals on new arrivals</div>
+              <div className="mt-4">
+                MMTH just dropped some of the new men and women winters collection, shop now and get some amazing
+                deals and discounts
+              </div>
             </div>
           </div>
-          <div className="col-md-3 mt-md-5 second">
-            <img src={F0064201301_2} className="img-fluid mt-5" alt="" />
+          <div className="col-md-3 mb-4">
+            <img src={F0064201301_2} className="img-fluid" alt="Special Deal 1" />
           </div>
 
-          <div className="col-md-3 third">
-            <img src={F0073101901_jacket_2} className="img-fluid mt-5" alt="" />
+          <div className="col-md-3 mb-4">
+            <img src={F0073101901_jacket_2} className="img-fluid" alt="Special Deal 2" />
           </div>
-          <div className="col-md-3 mt-md-5 fourth">
-            <img src={F0066101301_3} className="img-fluid mt-5" alt="" />
+          <div className="col-md-3 mb-4">
+            <img src={F0066101301_3} className="img-fluid" alt="Special Deal 3" />
           </div>
         </div>
       </div>
-    
-   </>
+    </>
+  );
+};
 
-  )
-}
-
-export default Home
+export default Home;

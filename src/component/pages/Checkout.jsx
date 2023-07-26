@@ -64,12 +64,13 @@ const Checkout = () => {
 
   return (
     <div className="checkout">
-      <h1 className="checkout-heading text-center mb-5">Checkout</h1>
+      <h1 className="cart-heading text-center display-3" style={{fontFamily:'fantasy', color:'#C51605'}}
+      >Checkout</h1>
 
       <div className="container">
         <div className="row">
           <div className="col-md-6">
-          <legend>Customer Information</legend>
+          <legend >Customer Information</legend>
             <form onSubmit={handleCheckout}>
               <div className="form-group">
                 <label htmlFor="firstName">First Name:</label>
@@ -199,7 +200,8 @@ const Checkout = () => {
                 </div>
               </fieldset>
 
-              <button type="submit" className="btn-primary">
+              <button type="submit" className="btn btn-primary"
+              style={{ backgroundColor: '#C51605', fontWeight: 600 }}>
                 Place Order
               </button>
             </form>
