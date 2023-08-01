@@ -1,22 +1,31 @@
 import React from 'react';
 import Helmet from '../Helmet/Helmet';
-import homeImg from '../../assets/images/Untitled design (4) 3.png';
 import mens from '../../assets/images/mens 51.png';
 import womens from '../../assets/images/womens 3.webp';
 import kids from '../../assets/images/kid.jpg';
-import F0064201301_2 from '../../assets/images/womens were 2.jpg';
+import F0064201301_2a from '../../assets/images/womens were 2.jpg';
 import F0066101301_3 from '../../assets/images/blue shirt womens.jpg';
 import F0073101901_jacket_2 from '../../assets/images/menswere1.jpg';
 import carousol1 from '../../assets/images/carousol1.png'
-import carousol22 from '../../assets/images/carousol22.png'
+import carousol22 from '../../assets/images/bag carousol.webp'
 import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JS
+import { Carousel } from 'bootstrap'; // Import the Carousel component from bootstrap
 
 
 const Home = () => {
+  useEffect(() => {
+    var carousel = new Carousel(document.getElementById('carouselExampleIndicators'), {
+      interval: 5000, // Set the interval for auto-slide in milliseconds (5000ms = 5 seconds)
+      pause: 'hover', // Pause on hover
+    });
+  }, []);
   return (
     <>
-     <Helmet title={'Home'}></Helmet>
-     <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+      <Helmet title={'Home'}></Helmet>
+      <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
         <ol className="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -28,17 +37,16 @@ const Home = () => {
               <p className='display-3' style={{fontFamily:'fantasy'}}>Winter Collection</p>
               <p className='lead bold'>Shop our latest winter collection now</p>
               <NavLink to='/shop'>
-              <button className="btn bold text-white" style={{ backgroundColor: '#C51605' }}>Shop Now</button>
-            </NavLink>
-
+                <button className="btn bold text-white" style={{ backgroundColor: '#C51605' }}>Shop Now</button>
+              </NavLink>
             </div>
           </div>
           <div className="carousel-item">
             <img className="d-block w-100" src={carousol22} alt="Second slide" style={{ height: '600px', objectFit: 'cover' }} />
             <div className="carousel-caption d-md-block">
-              <h3>Special Deals</h3>
-              <p>Check out our special deals on new arrivals</p>
-              <button className="btn btn-primary">View Deals</button>
+              <p className='display-3' style={{fontFamily:'fantasy'}}>Special Deals</p>
+              <p className='lead bold'>Check out our special deals on new arrivals</p>
+              <button className="btn bold text-white" style={{ backgroundColor: '#C51605' }}>View Deals</button>
             </div>
           </div>
         </div>
@@ -51,6 +59,7 @@ const Home = () => {
           <span className="sr-only">Next</span>
         </a>
       </div>
+
       {/* Rest of the content */} <div className="container mt-5">
         <div className="row">
           <div className="col-md-3 mb-4">
@@ -86,7 +95,7 @@ const Home = () => {
             </div>
           </div>
           <div className="col-md-3 mb-4">
-            <img src={F0064201301_2} className="img-fluid" alt="Special Deal 1" />
+            <img src={F0064201301_2a} className="img-fluid" alt="Special Deal 1" />
           </div>
 
           <div className="col-md-3 mb-4">
@@ -97,8 +106,10 @@ const Home = () => {
           </div>
         </div>
       </div>
+      
     </>
   );
 };
+
 
 export default Home;
